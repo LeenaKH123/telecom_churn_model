@@ -36,7 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # ------------------------------
 # 4. Train logistic regression model
 # ------------------------------
-model = LogisticRegression(class_weight='balanced', max_iter=1000)
+model = LogisticRegression(class_weight='balanced', max_iter=2000)
 model.fit(X_train, y_train)
 
 # ------------------------------
@@ -54,5 +54,6 @@ print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 # ------------------------------
 # 6. Export the trained model
 # ------------------------------
-joblib.dump(model, "logistic_churn_model.pkl")
+import joblib
+joblib.dump(model, "model/logistic_churn_model.pkl")
 print("\nModel saved as logistic_churn_model.pkl")
